@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<body>
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="{%url 'pune_data' %}"> View Pune Data</a>
+        </div>
+        <div class="col-md-6">
+            <h3 class="text-center"> Delhi Employees Details...</h3>
+        </div>
+        <div class="col-md-3 text-right">
+            <a href="{%url 'home_page' %}">Go To Home Page </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="contaire-fluid">
+     <div class="row">
+         <div class="col-md-4">
+              <img src="{% static 'images/delhi1.jpg' %}"
+                 style="height:100%; width:100%; border-radius:50%; border:2px solid red;"
+                 class="img-thumbnail">
+         </div>
+         <div class="col-md-4">
+              <img src="{% static 'images/delhi2.jpg' %}"
+                 style="height:100%; width:100%; border-radius:50%; border:2px solid red;"
+                 class="img-thumbnail">
+         </div>
+         <div class="col-md-4">
+              <img src="{% static 'images/delhi3.jpg' %}"
+                 style="height:100%; width:100%; border-radius:50%; border:2px solid red;"
+                 class="img-thumbnail">
+         </div>
+     </div>
+</div>
+
+{% include 'search_file.html' %}
+
+{% if employees %}
+
+<table class="table table-bordered text-center table-hover">
+    <thead class="bg-success text-white">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Salary</th>
+        <th>Email</th>
+        <th>Company</th>
+        <th>Job</th>
+        <th>Location</th>
+        <th>Address</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for employee in employees %}
+            <tr>
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.first_name }}</td>
+                <td>{{ employee.last_name }}</td>
+                <td>{{ employee.salary }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.company }}</td>
+                <td>{{ employee.job }}</td>
+                <td>{{ employee.location }}</td>
+                <td>{{ employee.address }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<h1>No EMployees Are Available</h1>
+{% endif %}
+{% endblock %}
+</body>
+</html>

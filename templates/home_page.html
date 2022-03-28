@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+
+   <div class="messages">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class=" text-center alert alert-{{ message.tags}}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+             </div>
+<div class="jumbotron text-center" >
+    <h1 id="title1" class="text-center" style="font-family: Century">Welcome To NTH</h1>
+    <a href="{% url 'hyd_data' %}" class="btn btn-success btn-lg cls1">Hyderabad</a>
+    <a href="{% url 'bang_data' %}" class="btn btn-primary btn-lg cls1">Bangalore</a>
+    <a href="{% url 'chennai_data' %}" class="btn btn-danger btn-lg cls1">Chennai</a>
+    <a href="{% url 'pune_data' %}" class="btn btn-warning btn-lg cls1">Pune</a>
+    <a href="{% url 'delhi_data' %}" class="btn btn-info btn-lg cls1">Delhi</a>
+</div>
+{% endblock %}
+
+</body>
+</html>

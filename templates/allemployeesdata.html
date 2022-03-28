@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+<body>
+{% block content %}
+{% if employees %}
+<h1 class="text-center">Employee Details...</h1>
+<table class="table table-bordered text-center table-hover">
+    <thead class="bg-success text-white">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Salary</th>
+        <th>Email</th>
+        <th>Company</th>
+        <th>Job</th>
+        <th>Location</th>
+        <th>Address</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for employee in employees %}
+            <tr>
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.first_name }}</td>
+                <td>{{ employee.last_name }}</td>
+                <td>{{ employee.salary }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.company }}</td>
+                <td>{{ employee.job }}</td>
+                <td>{{ employee.location }}</td>
+                <td>{{ employee.address }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<h1>No EMployees Are Available</h1>
+{% endif %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'cdnlines.html' %}
+</head>
+<style>
+    h1{
+        font-family: Century;
+        color: gold;
+        background-color: red;
+        text-align: center;
+    }
+    body{
+        background-color: cyan;
+    }
+</style>
+<body>
+<h1> Welcome To Narayana Tech House</h1>
+<div class="container-fluid">
+    <h2 class="text-center"> Login Here...</h2>
+    <div class="row">
+        <div class=" offset-md-4 col-md-4">
+            <form method="POST">
+                {% csrf_token %}
+
+                <label> Enter Username:</label>
+                <input type="text" placeholder="Enter username" class="form-control" name="username">
+
+                <label> Enter Password:</label>
+                <input type="password" placeholder="Enter your password" class="form-control" name ="password">
+                <center>
+                <input type="submit" value="login" class="btn btn-success">
+                <input type="reset" vlaue="clear" class="btn btn-danger">
+                </center>
+            </form>
+             <center><a href="{% url 'register' %}">Create New Account?</a></center>
+            {% include 'alerts.html' %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
